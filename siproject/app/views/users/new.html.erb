@@ -1,9 +1,24 @@
-<h1>New User</h1>
-<%= @user_role %>
+<div id="login">
+    <div class="card-login">
+        <div class="form-container">
+            <div class="image-container">
+                <%= image_tag 'cartoon-shop.jpg', class:'image' %>
+            </div>
+            <div class="form">
+                <%= render 'form', user: @user, user_role: @user_role %>   
+            </div>
+        </div>
 
-<%= render 'form', user: @user, user_role: @user_role %>
-
-<%= link_to "Cadastre-se como vendedor", signup_path(:type=> "seller") %>
-
-
-<%# <%= link_to 'Back', users_path %> %>
+        <div class="options-row">
+            <% if @user_role==0 %>
+                <%= link_to "Cadastre-se como comprador", signup_path(:type=> "consumer"), class:"waves-effect waves-light btn-small center-align" %> 
+            <% end %>
+            <% if @user_role==1 %>
+                <%= link_to "Cadastre-se como vendedor", signup_path(:type=> "seller"), class:"waves-effect waves-light btn-small" %> 
+            <% end %> 
+            <br>
+            <br>
+            <%= link_to 'Voltar', root_path, class:"waves-effect waves-light btn-small" %>
+        </div> 
+    </div>
+</div>

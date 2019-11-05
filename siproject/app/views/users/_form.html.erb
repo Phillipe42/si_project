@@ -17,6 +17,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :documento %>
+    <%= form.number_field :documento %>
+  </div>
+
+  <div class="field">
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
@@ -26,14 +36,11 @@
     <%= form.password_field :password_confirmation %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <%= form.hidden_field :role, :value => @user_role %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <%= form.hidden_field :tipo, :value => @user_role %>
+  
+  <div class="actions center-align">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+      <i class="material-icons right">send</i>
+    </button>
   </div>
 <% end %>
