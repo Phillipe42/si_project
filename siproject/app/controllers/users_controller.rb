@@ -14,8 +14,12 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user_role = "buy"
     @user = User.new
+    if params[:type] == 'seller'
+      @user_role = 0
+    else
+      @user_role = 1
+    end
   end
 
   # GET /users/1/edit
